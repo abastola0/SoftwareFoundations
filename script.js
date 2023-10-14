@@ -31,6 +31,8 @@ function getRandomChar() {
           
     //let randomIndex = Math.floor(Math.random() * window.length);
     let randomIndex = Math.floor(Math.random() * (end - start + 1)) + start;
+
+    console.log(start + " to " + end);
     return characters[randomIndex];
 }
 
@@ -45,7 +47,7 @@ function checkMatch(userSaidYes) {
         record.incorrect+=1;
         resultDisplay.textContent = 'Wrong!';
         resultDisplay.style.color = 'red';
-        flag = false;
+        flag = true;
     }
 
     correctCount.textContent = "Correct: " + record.correct;
