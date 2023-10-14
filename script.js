@@ -4,21 +4,22 @@ let history = ['', ''];
 const characters = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐔", "🐧", "🦆", "🦉", "🦇", "🦅", "🦋"];
 
 let i = 0;
+const window_size = 2;
 
 function getRandomChar() {
     //let randomIndex = Math.floor(Math.random() * characters.length);
     //randomIndex = characters.length%randomIndex;
     //return characters[randomIndex];
     let window;
-    window_size = 5;
     start = i % characters.length;
     end = (i + window_size) % characters.length;
 
     window = characters.slice(start, end);
+    console.log("window size is: " + start + " "+ end)
     i += 1;
-    let randomIndex = Math.floor(Math.random() * window.length);
-    randomIndex = window.length%randomIndex;
-    return window[randomIndex];
+    //let randomIndex = Math.floor(Math.random() * window.length);
+    let randomIndex = Math.floor(Math.random() * (end - start + 1)) + start;
+    return characters[randomIndex];
 }
 
 function checkMatch(userSaidYes) {
