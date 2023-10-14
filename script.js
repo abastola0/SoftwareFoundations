@@ -7,7 +7,7 @@ let history = ['', '', ''];
 const characters = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐔", "🐧", "🦆", "🦉", "🦇", "🦅", "🦋"];
 
 let i = 0;
-let flag = false;
+let flag = 0;
 const window_size = 2;
 let record = {
     "correct": 0, 
@@ -25,7 +25,7 @@ function getRandomChar() {
     end = (i + window_size) % characters.length;
 
     window = characters.slice(start, end);
-    if (flag) {
+    if (flag==2) {
         i += 1;
     }
           
@@ -42,12 +42,12 @@ function checkMatch(userSaidYes) {
         record.correct+=1;
         resultDisplay.textContent = 'Correct!';
         resultDisplay.style.color = 'green';
-        flag = false;
+        flag = 0;
     } else {
         record.incorrect+=1;
         resultDisplay.textContent = 'Wrong!';
         resultDisplay.style.color = 'red';
-        flag = true;
+        flag +=1;
     }
 
     correctCount.textContent = "Correct: " + record.correct;
