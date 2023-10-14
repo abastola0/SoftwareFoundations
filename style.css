@@ -12,11 +12,13 @@ body {
 }
 
 #game-container {
-    padding: 40px;
+    padding: 150px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 button {
@@ -27,7 +29,26 @@ button {
 }
 
 #char-display {
-    font-size: 24px;
+    font-size: 200px;
     margin: 20px;
 }
+
+#window-title{
+    font-size: 50px;
+    position: fixed;
+    top:200px;
+    margin-left: -30px;
+    align-items: center;
+    justify-content: center;
+}
+ 
+#correct-count{
+    font-size: 20px;
+    color: green;
+    }
+
+#incorrect-count{
+    font-size: 20px;
+    color: red;
+    }
 

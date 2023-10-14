@@ -1,14 +1,20 @@
 const charDisplay = document.getElementById('char-display');
 const resultDisplay = document.getElementById('result-display');
+const windowTitle = document.getElementById('window-title');
+const correctCount = document.getElementById('correct-count');
+const incorrectCount = document.getElementById('incorrect-count');
 let history = ['', '', ''];
 const characters = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐔", "🐧", "🦆", "🦉", "🦇", "🦅", "🦋"];
 
 let i = 0;
+let flag = false;
 const window_size = 2;
 let record = {
     "correct": 0, 
     "incorrect": 0
 }
+
+windowTitle.textContent = "N-BACK GAME"
 
 function getRandomChar() {
     //let randomIndex = Math.floor(Math.random() * characters.length);
@@ -19,12 +25,12 @@ function getRandomChar() {
     end = (i + window_size) % characters.length;
 
     window = characters.slice(start, end);
-    console.log("window size is: " + start + " "+ end)
-    i += 1;
+    if (flag) {
+        i += 1;
+    }
+          
     //let randomIndex = Math.floor(Math.random() * window.length);
     let randomIndex = Math.floor(Math.random() * (end - start + 1)) + start;
-    console.log(record.correct)
-    console.log(record.incorrect)
     return characters[randomIndex];
 }
 
@@ -34,11 +40,17 @@ function checkMatch(userSaidYes) {
         record.correct+=1;
         resultDisplay.textContent = 'Correct!';
         resultDisplay.style.color = 'green';
+        flag = false;
     } else {
         record.incorrect+=1;
         resultDisplay.textContent = 'Wrong!';
         resultDisplay.style.color = 'red';
+        flag = false;
     }
+
+    correctCount.textContent = "Correct: " + record.correct;
+    incorrectCount.textContent = "Incorrect: " + record.incorrect;
+    
     nextCharacter();
 }
 
