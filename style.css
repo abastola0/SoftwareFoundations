@@ -52,3 +52,40 @@ button {
     color: red;
     }
 
+.instructions {
+    display: block; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    white-space: normal;
+    overflow: hidden; /* or overflow: auto; */
+}
+
+.instructions-content {
+    font-size: auto;
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 25px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 20%; /* Adjust the width percentage as needed */
+    height: 30%; /* Adjust the height percentage as needed */
+    position: relative;
+    text-align: center;
+    font-family: "Arial"; 
+}
+
+.close {
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.centered {
+    text-align: center;
+}

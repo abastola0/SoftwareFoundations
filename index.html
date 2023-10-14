@@ -7,7 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="instructions" class="instructions">
+        <div class="instructions-content">
+
+            <h2 class = "centered">How to Play</h2>
+            <p>N-Back is a training game for your brain that will challenge your memory and attention. </p>
+            </p>You will be shown animals in a randomized sequence and your task is to determine if the current animal matches the one two steps back in the sequence. 
+                If it is press Yes, otherwise press No. </p>
+            <button class="close" onclick="closeInstructions()">Start</button>
+        </div>
+    </div>
+    
     <div id="game-container">
+        
+        <h1>N-BACK GAME</h1>
         <div id="correct-count">Correct: 0</div>
         <div id="incorrect-count">Incorrect: 0</div>
         <p id="char-display"></p>

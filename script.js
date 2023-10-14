@@ -14,8 +14,6 @@ let record = {
     "incorrect": 0
 }
 
-windowTitle.textContent = "N-BACK GAME"
-
 function getRandomChar() {
     //let randomIndex = Math.floor(Math.random() * characters.length);
     //randomIndex = characters.length%randomIndex;
@@ -66,3 +64,7 @@ function nextCharacter() {
 
 nextCharacter(); // Start the game with the first character
 
+function closeInstructions() {
+    var modal = document.getElementById("instructions");
+    modal.style.display = "none";
+}
