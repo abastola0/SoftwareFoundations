@@ -3,24 +3,18 @@ const resultDisplay = document.getElementById('result-display');
 let history = ['', ''];
 const characters = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐔", "🐧", "🦆", "🦉", "🦇", "🦅", "🦋"];
 
-
+let i = 0;
 
 function getRandomChar() {
     //let randomIndex = Math.floor(Math.random() * characters.length);
     //randomIndex = characters.length%randomIndex;
     //return characters[randomIndex];
+    let window;
     window_size = 5;
     start = i % characters.length;
     end = (i + window_size) % characters.length;
 
-    if (start < end){
-        let window = characters.slice(start, end);
-    }
-
-    else{
-         window = input_string[start:] + input_string[:end]
-    }
-            
+    window = characters.slice(start, end);
     i += 1;
     let randomIndex = Math.floor(Math.random() * window.length);
     randomIndex = window.length%randomIndex;
