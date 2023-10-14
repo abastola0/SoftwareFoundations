@@ -1,10 +1,14 @@
 const charDisplay = document.getElementById('char-display');
 const resultDisplay = document.getElementById('result-display');
-let history = ['', ''];
+let history = ['', '', ''];
 const characters = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐔", "🐧", "🦆", "🦉", "🦇", "🦅", "🦋"];
 
 let i = 0;
 const window_size = 2;
+let record = {
+    "correct": 0, 
+    "incorrect": 0
+}
 
 function getRandomChar() {
     //let randomIndex = Math.floor(Math.random() * characters.length);
@@ -19,15 +23,19 @@ function getRandomChar() {
     i += 1;
     //let randomIndex = Math.floor(Math.random() * window.length);
     let randomIndex = Math.floor(Math.random() * (end - start + 1)) + start;
+    console.log(record.correct)
+    console.log(record.incorrect)
     return characters[randomIndex];
 }
 
 function checkMatch(userSaidYes) {
-    const isMatch = history[0] === history[1];
+    const isMatch = history[0] === history[2];
     if (userSaidYes === isMatch) {
+        record.correct+=1;
         resultDisplay.textContent = 'Correct!';
         resultDisplay.style.color = 'green';
     } else {
+        record.incorrect+=1;
         resultDisplay.textContent = 'Wrong!';
         resultDisplay.style.color = 'red';
     }
@@ -38,7 +46,8 @@ function nextCharacter() {
     const newChar = getRandomChar();
     charDisplay.textContent = newChar;
     history[0] = history[1];
-    history[1] = newChar;
+    history[1] = history[2];
+    history[2] = newChar;
 }
 
 nextCharacter(); // Start the game with the first character
