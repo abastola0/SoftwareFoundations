@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <div id="instructions" class="instructions">
         <div class="instructions-content">
 
@@ -14,7 +15,25 @@
             <p>N-Back is a training game for your brain that will challenge your memory and attention. </p>
             </p>You will be shown animals in a randomized sequence and your task is to determine if the current animal matches the one two steps back in the sequence. 
                 If it is press Yes, otherwise press No. </p>
-            <button class="close" onclick="closeInstructions()">Start</button>
+
+            <form id="difficulty">    
+                <h3>Select Difficulty:</h3>
+                <div class="radio-box">
+                    <input type="radio" id="easy" name="difficulty" value="Easy">
+                    <label for="easy">Easy</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" id="medium" name="difficulty" value="Medium">
+                    <label for="medium">Medium</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" id="hard" name="difficulty" value="Hard">
+                    <label for="hard">Hard</label>
+                </div>
+                <br><br><br>
+                <input class="difficulty_submit" type="submit" value="START">
+            </form>
+
         </div>
     </div>
     

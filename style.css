@@ -52,6 +52,8 @@ button {
     color: red;
     }
 
+
+/* might not need some of this*/
 .instructions {
     display: block; 
     position: fixed;
@@ -62,7 +64,8 @@ button {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     white-space: normal;
-    overflow: hidden; /* or overflow: auto; */
+    overflow: hidden; 
+    
 }
 
 .instructions-content {
@@ -72,11 +75,13 @@ button {
     padding: 25px;
     border: 1px solid #888;
     border-radius: 5px;
-    width: 20%; /* Adjust the width percentage as needed */
-    height: 30%; /* Adjust the height percentage as needed */
+    max-width: 20%; 
+    height: 40%; 
     position: relative;
     text-align: center;
     font-family: "Arial"; 
+    overflow: auto; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .close {
@@ -89,3 +94,54 @@ button {
 .centered {
     text-align: center;
 }
+
+
+.radio-box {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* buttons for difficulty levels in boxes */
+.radio-box label {
+    border-radius: 4px;
+    display: block;
+    border: 2px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/*  For buttons in boxes when selected */
+.radio-box input:checked + label {
+    background-color: #648FFF;
+    color: white;
+    border: 2px solid #a7a6a6;
+}
+
+/* for when button being hovered*/
+.radio-box:hover label{
+    background-color: #648FFF;
+    color: white;
+}
+
+/* Hide the pesky radio button */
+.radio-box input {
+    display: none;
+}
+
+
+.difficulty_submit{
+    font-family: sans-serif;
+    font-size: 150%;
+    width: 25%;
+    height: 50%;
+    border-radius: 5px;
+    background-color: d8d8d8;
+    
+}
+
+.difficulty_submit:hover{
+    
+    background-color: rgb(120, 228, 147);
+}
+
+

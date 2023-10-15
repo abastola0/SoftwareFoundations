@@ -5,7 +5,7 @@ const correctCount = document.getElementById('correct-count');
 const incorrectCount = document.getElementById('incorrect-count');
 let history = ['', '', ''];
 const characters = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐔", "🐧", "🦆", "🦉", "🦇", "🦅", "🦋"];
-
+let speed = 0;
 let i = 0;
 let flag = 0;
 const window_size = 2;
@@ -68,3 +68,30 @@ function closeInstructions() {
     var modal = document.getElementById("instructions");
     modal.style.display = "none";
 }
+
+// handles difficulty form submission
+document.getElementById("difficulty").addEventListener("submit", function(event) {
+    
+    event.preventDefault();
+
+    // Get the selected difficulty level
+    var selectedDifficulty = document.querySelector('input[name="difficulty"]:checked');
+
+    if (selectedDifficulty) {
+        // A difficulty level has been selected
+        closeInstructions();
+
+        if(selectedDifficulty.value === "Easy") {
+            speed = 10; 
+        }
+        else if(selectedDifficulty.value === "Medium") {
+            speed = 5; 
+        }
+        else if(selectedDifficulty.value === "Hard") {
+            speed = 3; 
+        }
+        // You can now use 'selectedDifficulty.value' to perform actions based on the user's choice.
+        // For demonstration purposes, we'll just log the selected difficulty.
+        console.log("Speed: " + speed);
+    }
+});
