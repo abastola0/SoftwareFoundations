@@ -144,4 +144,19 @@ button {
     background-color: rgb(120, 228, 147);
 }
 
+/* Style for the time bar container */
+#time-bar-container {
+    width: 100%;
+    height: 20px; /* Set the height of your time bar */
+    background-color: #ccc; /* Background color of the time bar container */
+}
+  
+  /* Style for the time bar (initially empty) */
+#time-bar {
+height: 100%;
+width: 100%;
+background-color: #4CAF50; 
+transition: none;
+}
+
 

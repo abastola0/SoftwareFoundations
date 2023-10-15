@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+   <!-- Pop up for instructions -->
     <div id="instructions" class="instructions">
         <div class="instructions-content">
-
             <h2 class = "centered">How to Play</h2>
             <p>N-Back is a training game for your brain that will challenge your memory and attention. </p>
             </p>You will be shown animals in a randomized sequence and your task is to determine if the current animal matches the one two steps back in the sequence. 
                 If it is press Yes, otherwise press No. </p>
-
+            <!-- Area to choose difficulty -->
             <form id="difficulty">    
                 <h3>Select Difficulty:</h3>
                 <div class="radio-box">
@@ -37,17 +37,22 @@
         </div>
     </div>
     
+     <!-- Actual game -->
     <div id="game-container">
         
         <h1>N-BACK GAME</h1>
         <div id="correct-count">Correct: 0</div>
         <div id="incorrect-count">Incorrect: 0</div>
         <p id="char-display"></p>
-        <h1 id="window-title"></h1>
         <button onclick="checkMatch(true)">Yes</button>
         <button onclick="checkMatch(false)">No</button>
-        <p id="result-display"></p>
+        <p id="result-display">&zwnj;</p> <!-- invisibe character so it dosen't move entire page-->
+        <div id="time-bar-container"><!-- Timer bar -->
+            <div id="time-bar"></div>
+        </div>
     </div>
+
+
     <script src="script.js"></script>
 </body>
 </html>
