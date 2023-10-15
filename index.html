@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2-Back Game</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" id="stylesheet" href="style.css">
 </head>
 <body>
    <!-- Pop up for instructions -->
@@ -32,6 +32,13 @@
                 </div>
                 <br><br><br>
                 <input class="difficulty_submit" type="submit" value="START">
+                <br><br>
+                <!-- Toggle for light/dark mode -->
+                <label class="switch">
+                    <input type="checkbox" id="mode-toggle">
+                    <span class="slider round"></span>
+                </label>
+                
             </form>
 
         </div>
@@ -51,6 +58,7 @@
             <div id="time-bar"></div>
         </div>
     </div>
+    
 
 
     <script src="script.js"></script>

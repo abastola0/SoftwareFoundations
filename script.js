@@ -5,6 +5,7 @@ const correctCount = document.getElementById('correct-count');
 const incorrectCount = document.getElementById('incorrect-count');
 
 const timeBar = document.getElementById('time-bar');
+
 let timer;
 
 let history = ['', '', ''];
@@ -48,7 +49,7 @@ function checkMatch(userSaidYes) {
     } else {
         record.incorrect+=1;
         resultDisplay.textContent = 'Wrong!';
-        resultDisplay.style.color = 'red';
+        resultDisplay.style.color = "#FF5733";
         flag +=1;
     }
 
@@ -81,6 +82,7 @@ function closeInstructions() {
 function decreaseTime() {
     const currentWidth = parseFloat(timeBar.style.width);
     if (currentWidth > 0) {
+        //references width in css 
         timeBar.style.width = (currentWidth - 0.1) + '%'; // Decrease by 0.1% per interval. Makes it smoother
     } 
     else {
@@ -125,6 +127,21 @@ document.getElementById("difficulty").addEventListener("submit", function(event)
         //starts timer 
         startTimer();
     }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const modeToggle = document.getElementById('mode-toggle');
+    const stylesheet = document.getElementById('stylesheet');
+
+    modeToggle.addEventListener('change', function () {
+        if (modeToggle.checked) {
+            // Dark mode
+            stylesheet.href = 'styleDark.css';
+        } else {
+            // Light mode
+            stylesheet.href = 'style.css';
+        }
+    });
 });
 
 
