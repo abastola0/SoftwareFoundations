@@ -31,7 +31,7 @@
                     <label for="hard">Hard</label>
                 </div>
                 <br><br><br>
-                <input class="difficulty_submit" type="submit" value="START">
+                <input class="difficulty_submit" type="submit" value="START" id="start-button">
                 <br><br>
                 <!-- Toggle for light/dark mode -->
                 <label class="switch">
@@ -50,13 +50,18 @@
         <h1>N-BACK GAME</h1>
         <div id="correct-count">Correct: 0</div>
         <div id="incorrect-count">Incorrect: 0</div>
+        <div id="timer-display">Game-Time:<span id="timer">0</span></div>
+
         <p id="char-display"></p>
         <button onclick="checkMatch(true)">Yes</button>
         <button onclick="checkMatch(false)">No</button>
         <p id="result-display">&zwnj;</p> <!-- invisibe character so it dosen't move entire page-->
         <div id="time-bar-container"><!-- Timer bar -->
-            <div id="time-bar"></div>
+        <div id="time-bar"> </div>
+           
+
         </div>
+        
     </div>
     
 

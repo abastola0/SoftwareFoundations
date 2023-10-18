@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    background-image: url('https://sharework-project.eu/wp-content/uploads/2020/02/Smart_Cognition_System-1000x500.png');
 }
 
 #game-container {
@@ -17,9 +17,9 @@ body {
     white-space: nowrap; /* Prevent line breaks in the text */
 
     padding: 150px;
-    background-color: white;
+    background-color: rgb(201, 233, 239);
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);/*    background-color: rgb(53, 53, 53);  
+    box-shadow: 0 0 10px hwb(195 89% 9% / 0.102);/*    background-color: rgb(53, 53, 53);  
                                         border-radius: 10px;
                                         box-shadow: 0 0 10px rgba(49, 49, 49, 0.1);*/
     text-align: center;
@@ -57,7 +57,11 @@ button {
     font-size: 20px;
     color: red;
     }
+#timer-display{
+    font-size: 20px;
+    color: blue;
 
+}
 
 /* might not need some of this*/
 .instructions {
@@ -227,4 +231,7 @@ border-radius: 34px;
 .slider.round:before {
 border-radius: 50%;
 }
+
+
+
 /* FROM W3 SCHOOL END */
