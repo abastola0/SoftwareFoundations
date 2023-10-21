@@ -27,7 +27,7 @@ function updateTimer() {
         timerElement.textContent = seconds + 's';
         seconds++;
         
-        if (seconds >= 60) {
+        if (seconds >= 300) {
             gameActive = false; // Game over
             clearInterval(timer);
             displayGameOver();
@@ -40,7 +40,7 @@ function displayGameOver() {
     gameOverElement.style.color = 'red';
     gameOverElement.style.fontSize = '36px';
     document.getElementById('game-container').appendChild(gameOverElement);
-    if (seconds >= 60) {
+    if (seconds >= 300) {
           // Calculate the position for the pop-up window to be centered
           const width = 400; // Adjust as needed
           const height = 200; // Adjust as needed
@@ -63,7 +63,7 @@ function displayGameOver() {
             </style>
           </head>
           <body>
-            <h1>Congratulations!! You have passed all the Levels</h1>
+            <h1>Congratulations!! You have passed all the Phase!!</h1>
           </body>
           </html>
         `);
