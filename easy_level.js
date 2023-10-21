@@ -51,7 +51,22 @@ function displayGameOver() {
           const popup = window.open('', 'PopupWindow', `width=${width},height=${height},left=${left},top=${top}`);
           
           // Display a message in the pop-up
-          popup.document.write('<h1> Congratulations!! You have passed first Level </h1>');
+          popup.document.write(`
+          <html>
+          <head>
+            <style>
+              body {
+                background-color: white; /* Change the background color */
+                color: #00BFFF; /* Change the text color */
+                font-family: Arial, sans-serif; /* Specify the font-family */
+              }
+            </style>
+          </head>
+          <body>
+            <h1>Congratulations!! You have passed first Level</h1>
+          </body>
+          </html>
+        `);
           //popup.document.write('<p>Your game is over.</p>');
   
           // Close the pop-up after 5 seconds (adjust as needed)
