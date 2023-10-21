@@ -148,20 +148,16 @@ button {
     background-color: rgb(120, 228, 147);
 }
 
-/* time bar  */
+/* Time bar styles */
 #time-bar-container {
-    width: 100%;
-    height: 20px; 
-    background-color: #ccc; 
-}
-  
-#time-bar {
-height: 100%;
-width: 100%;
-background-color: #4CAF50; 
-transition: none;
+    position: relative;
 }
 
+#time-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #18c512;
+}
 
 /* The switch - the box around the slider */
 /* CODE FROM W3 TUTORIALS */
@@ -223,7 +219,18 @@ border-radius: 34px;
 .slider.round:before {
 border-radius: 50%;
 }
+#exit-button {
+    background-color: #ff5733; /* Background color for the button */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding inside the button */
+    border: none; /* Remove button border */
+    cursor: pointer; /* Show a hand cursor on hover */
+}
 
+/* Adjust the styling for the hover state */
+#exit-button:hover {
+    background-color: #d9411e; /* Change background color on hover */
+}
 
 
 /* FROM W3 SCHOOL END */

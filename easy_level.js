@@ -147,6 +147,10 @@ function startTimer() {
     timeBar.style.width = '100%';
     timer = setInterval(decreaseTime, speed); //will adjust interval every [speed] seconds
 }
+//Exit button
+function redirectToIndex() {
+    window.location.href = 'index.html'; // Replace 'index.html' with the desired destination URL
+}
 
 // handles difficulty form submission
 document.getElementById("difficulty").addEventListener('submit', function (event) {

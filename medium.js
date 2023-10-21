@@ -141,14 +141,16 @@ function decreaseTime() {
         }
     }
 }
+//Exit button
+function redirectToIndex() {
+    window.location.href = 'index.html'; // Replace 'index.html' with the desired destination URL
+}
   //starts timer 
 function startTimer() {
         // Reset the time bar
     timeBar.style.width = '100%';
     timer = setInterval(decreaseTime, speed); //will adjust interval every [speed] seconds
 }
-
-
          //starts timer 
          gameActive = true;
          startTimer();

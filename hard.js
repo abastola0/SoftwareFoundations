@@ -141,6 +141,10 @@ function decreaseTime() {
         }
     }
 }
+//Exit button
+function redirectToIndex() {
+    window.location.href = 'index.html'; // Replace 'index.html' with the desired destination URL
+}
   //starts timer 
 function startTimer() {
         // Reset the time bar
