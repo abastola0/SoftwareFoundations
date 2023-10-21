@@ -8,12 +8,12 @@ const gameOverElement = document.createElement('div');
 gameOverElement.setAttribute('id', 'game-over');
 
 let timer;
-let history = ['', '', ''];
+let history = ['', '', '','',''];
 const characters = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐔", "🐧", "🦆", "🦉", "🦇", "🦅", "🦋"];
 let speed = 0;
 let i = 0;
 let flag = 0;
-const window_size = 2;
+const window_size = 4;
 let record = {
     "correct": 0,
     "incorrect": 0
@@ -78,7 +78,7 @@ function getRandomChar() {
     start = i % characters.length;
     end = (i + window_size) % characters.length;
     window = characters.slice(start, end);
-    if (flag == 2) {
+    if (flag == 4) {
         i += 1;
     }
     //let randomIndex = Math.floor(Math.random() * window.length);
@@ -89,7 +89,7 @@ function getRandomChar() {
 
 function checkMatch(userSaidYes) {
     if (gameActive) {
-        const isMatch = history[0] === history[2];
+        const isMatch = history[0] === history[4];
         if (userSaidYes === isMatch) {
             record.correct += 1;
             resultDisplay.textContent = 'Correct!';
@@ -118,7 +118,9 @@ function nextCharacter() {
         charDisplay.textContent = newChar;
         history[0] = history[1];
         history[1] = history[2];
-        history[2] = newChar;
+        history[2]=history[3];
+        history[3]=history[4];
+        history[4] = newChar;
     }
 }
 
