@@ -63,8 +63,6 @@ Throughout the development process, we encountered several challenges, including
 
 The incorporation of animal characters and a moving window mechanism in the character roster were pivotal in ensuring diverse and engaging gameplay. The team's adaptability and collaborative problem-solving enabled us to transform the traditional N-back task into a captivating cognitive game.
 
-For more details on the challenges faced, and the solutions we implemented, read the [full reflection](https://example.com/link-to-full-reflection).
-
 ---
 
 ### Contributing
