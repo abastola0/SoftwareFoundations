@@ -1,6 +1,6 @@
 # N-Back Cognitive Game
 
-![Game Preview](https://example.com/path-to-your-image.png) 
+![Game Preview](https://github.com/abastola0/SoftwareFoundations/assets/41137160/ed5c0e8d-dbf2-42b0-9e2e-e0073a9a85b3.png)
 
 *Image preview of the game*
 
