@@ -2,7 +2,7 @@
 
 ## Play The Game 
 
-https://trp02.github.io/nback.github.io/ 
+[https://trp02.github.io/nback.github.io/](https://trp02.github.io/nback.github.io/) 
 
 ![Game Preview](https://github.com/abastola0/SoftwareFoundations/assets/41137160/ed5c0e8d-dbf2-42b0-9e2e-e0073a9a85b3.png)
 
