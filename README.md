@@ -1,6 +1,6 @@
 # N-Back Cognitive Game
 
-# Play The Game 
+## Play The Game 
 
 https://trp02.github.io/nback.github.io/ 
 
