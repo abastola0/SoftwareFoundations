@@ -10,10 +10,13 @@ gameOverElement.setAttribute('id', 'game-over');
 let timer;
 let history = ['', '', ''];
 const characters = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐔", "🐧", "🦆", "🦉", "🦇", "🦅", "🦋"];
-let speed = 0;
+let speedParams = {duration: 0, widthReduction: 0}
+let duration = 0;
 let i = 0;
 let flag = 0;
 const window_size = 2;
+const timePerLevel = 180;
+let previousIndex;
 let record = {
     "correct": 0,
     "incorrect": 0
@@ -27,7 +30,7 @@ function updateTimer() {
         timerElement.textContent = seconds + 's';
         seconds++;
         
-        if (seconds >= 60) {
+        if (seconds >= timePerLevel) {
             gameActive = false; // Game over
             clearInterval(timer);
             displayGameOver();
@@ -36,11 +39,11 @@ function updateTimer() {
 }
 
 function displayGameOver() {
-    gameOverElement.textContent = 'First level done!!';
+    gameOverElement.textContent = 'First level done!!'; 
     gameOverElement.style.color = 'red';
     gameOverElement.style.fontSize = '36px';
     document.getElementById('game-container').appendChild(gameOverElement);
-    if (seconds >= 60) {
+    if (seconds >= 5) {
           // Calculate the position for the pop-up window to be centered
           const width = 400; // Adjust as needed
           const height = 200; // Adjust as needed
@@ -63,7 +66,7 @@ function displayGameOver() {
             </style>
           </head>
           <body>
-            <h1>Congratulations!! You have passed first Level</h1>
+            <h1>Congratulations!! You have passed first Level. Wait for 5 seconds and you'll be directed to the next level</h1>
           </body>
           </html>
         `);
@@ -78,7 +81,7 @@ function displayGameOver() {
   
           // Redirect to another page after the pop-up is closed
           setTimeout(function() {
-              window.location.href = 'medium.html'; // Redirect to 'medium.html' to start the game again
+              window.location.href = 'phaseII.html'; // Redirect to 'phaseII.html' to start the game again
                       }, 5000);
       }
 }
@@ -98,8 +101,13 @@ function getRandomChar() {
     }
     //let randomIndex = Math.floor(Math.random() * window.length);
     let randomIndex = Math.floor(Math.random() * (end - start + 1)) + start;
-    console.log(start + " to " + end);
-    return characters[randomIndex];
+    if (!previousIndex){
+        previousIndex = randomIndex;
+    }
+    else{
+        previousIndex = Math.random()< 0.5 ? previousIndex : randomIndex;
+    }
+    return characters[previousIndex];
 }
 
 function checkMatch(userSaidYes) {
@@ -144,12 +152,15 @@ function closeInstructions() {
     var modal = document.getElementById("instructions");
     modal.style.display = "none";
 }
+
 //decreases timer
 function decreaseTime() {
+
+    let selectedDifficulty = document.querySelector('input[name="difficulty"]:checked');
     if (gameActive) {
         const currentWidth = parseFloat(timeBar.style.width);
         if (currentWidth > 0) {
-            timeBar.style.width = (currentWidth - 0.1) + '%';// Decrease by 0.1% per interval. Makes it smoother
+            timeBar.style.width = (currentWidth - speedParams.widthReduction) + '%';// Decrease by 0.2% per interval. Makes it smoother
         } else {
             //checkMatch will clear current timer and start new one
         checkMatch(); //add to incorrect when timer runs out and move on 
@@ -160,7 +171,7 @@ function decreaseTime() {
 function startTimer() {
         // Reset the time bar
     timeBar.style.width = '100%';
-    timer = setInterval(decreaseTime, speed); //will adjust interval every [speed] seconds
+    timer = setInterval(()=> decreaseTime(), speedParams); //will adjust interval every [duration] seconds
 }
 //Exit button
 function redirectToIndex() {
@@ -175,11 +186,14 @@ document.getElementById("difficulty").addEventListener('submit', function (event
         // Close window and record difficulty lvl
         closeInstructions();
         if (selectedDifficulty.value === "Easy") {
-            speed = 15; //timer will be 15 seconds
+            speedParams.duration = 5; //timer will be 5 seconds
+            speedParams.widthReduction = 0.1; //width reduction 0.1 per interval
         } else if (selectedDifficulty.value === "Medium") {
-            speed = 7; //7 seconds
+            speedParams.duration = 3; //every 3 seconds
+            speedParams.widthReduction = 0.2; //width reduction 0.2 per interval
         } else if (selectedDifficulty.value === "Hard") {
-            speed = 3;//3 seconds
+            speedParams.duration = 0.5;//twice every second
+            speedParams.widthReduction = 0.4;//width reduction 0.4 per interval
         }
          //starts timer 
          gameActive = true;
@@ -201,3 +215,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
