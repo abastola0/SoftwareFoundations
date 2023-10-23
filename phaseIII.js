@@ -14,6 +14,8 @@ let speed = 0;
 let i = 0;
 let flag = 0;
 const window_size = 6;
+const timePerLevel = 240;
+let previousIndex;
 let record = {
     "correct": 0,
     "incorrect": 0
@@ -27,7 +29,7 @@ function updateTimer() {
         timerElement.textContent = seconds + 's';
         seconds++;
         
-        if (seconds >= 300) {
+        if (seconds >= timePerLevel) {
             gameActive = false; // Game over
             clearInterval(timer);
             displayGameOver();
@@ -98,8 +100,13 @@ function getRandomChar() {
     }
     //let randomIndex = Math.floor(Math.random() * window.length);
     let randomIndex = Math.floor(Math.random() * (end - start + 1)) + start;
-    console.log(start + " to " + end);
-    return characters[randomIndex];
+    if (!previousIndex){
+        previousIndex = randomIndex;
+    }
+    else{
+        previousIndex = Math.random()< 0.5 ? previousIndex : randomIndex;
+    }
+    return characters[previousIndex];
 }
 
 function checkMatch(userSaidYes) {
@@ -153,7 +160,7 @@ function decreaseTime() {
     if (gameActive) {
         const currentWidth = parseFloat(timeBar.style.width);
         if (currentWidth > 0) {
-            timeBar.style.width = (currentWidth - 0.1) + '%';// Decrease by 0.1% per interval. Makes it smoother
+            timeBar.style.width = (currentWidth - 0.3) + '%';// Decrease by 0.1% per interval. Makes it smoother
         } else {
             //checkMatch will clear current timer and start new one
         checkMatch(); //add to incorrect when timer runs out and move on 

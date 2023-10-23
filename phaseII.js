@@ -10,10 +10,12 @@ gameOverElement.setAttribute('id', 'game-over');
 let timer;
 let history = ['', '', '','',''];
 const characters = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐔", "🐧", "🦆", "🦉", "🦇", "🦅", "🦋"];
-let speed = 0;
+let speed = 0
 let i = 0;
 let flag = 0;
 const window_size = 4;
+const timePerLevel = 240;
+let previousIndex;
 let record = {
     "correct": 0,
     "incorrect": 0
@@ -27,7 +29,7 @@ function updateTimer() {
         timerElement.textContent = seconds + 's';
         seconds++;
         
-        if (seconds >= 180) {
+        if (seconds >= timePerLevel) {
             gameActive = false; // Game over
             clearInterval(timer);
             displayGameOver();
@@ -63,7 +65,7 @@ function displayGameOver() {
             </style>
           </head>
           <body>
-            <h1>Congratulations!! You have passed 2nd Phase</h1>
+            <h1>Congratulations!! You have passed 2nd Level. Wait for 5 seconds and you'll be directed to next level</h1>
           </body>
           </html>
         `);
@@ -78,7 +80,7 @@ function displayGameOver() {
   
           // Redirect to another page after the pop-up is closed
           setTimeout(function() {
-              window.location.href = 'hard.html'; // Redirect to 'hard.html' to start the game again
+              window.location.href = 'phaseIII.html'; // Redirect to 'phaseIII.html' to start the game again
                       }, 5000);
       }
 }
@@ -96,10 +98,14 @@ function getRandomChar() {
     if (flag == 4) {
         i += 1;
     }
-    //let randomIndex = Math.floor(Math.random() * window.length);
     let randomIndex = Math.floor(Math.random() * (end - start + 1)) + start;
-    console.log(start + " to " + end);
-    return characters[randomIndex];
+    if (!previousIndex){
+        previousIndex = randomIndex;
+    }
+    else{
+        previousIndex = Math.random()< 0.5 ? previousIndex : randomIndex;
+    }
+    return characters[previousIndex];
 }
 
 function checkMatch(userSaidYes) {
@@ -151,7 +157,7 @@ function decreaseTime() {
     if (gameActive) {
         const currentWidth = parseFloat(timeBar.style.width);
         if (currentWidth > 0) {
-            timeBar.style.width = (currentWidth - 0.1) + '%';// Decrease by 0.1% per interval. Makes it smoother
+            timeBar.style.width = (currentWidth - 0.2) + '%';// Decrease by 0.1% per interval. Makes it smoother
         } else {
             //checkMatch will clear current timer and start new one
         checkMatch(); //add to incorrect when timer runs out and move on 

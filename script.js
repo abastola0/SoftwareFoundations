@@ -134,7 +134,7 @@ function decreaseTime() {
     if (gameActive) {
         const currentWidth = parseFloat(timeBar.style.width);
         if (currentWidth > 0) {
-            timeBar.style.width = (currentWidth - 0.1) + '%';// Decrease by 0.1% per interval. Makes it smoother
+            timeBar.style.width = (currentWidth - 0.2) + '%';// Decrease by 0.1% per interval. Makes it smoother
         } else {
             //checkMatch will clear current timer and start new one
         checkMatch(); //add to incorrect when timer runs out and move on 
@@ -156,11 +156,11 @@ document.getElementById("difficulty").addEventListener('submit', function (event
         // Close window and record difficulty lvl
         closeInstructions();
         if (selectedDifficulty.value === "Easy") {
-            speed = 15; //timer will be 15 seconds
+            speed = 7; //timer will be 15 seconds
         } else if (selectedDifficulty.value === "Medium") {
-            speed = 7; //7 seconds
+            speed = 4; //7 seconds
         } else if (selectedDifficulty.value === "Hard") {
-            speed = 3;//3 seconds
+            speed = 2;//3 seconds
         }
          //starts timer 
          gameActive = true;
